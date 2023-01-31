@@ -20,7 +20,7 @@ function buyUpgrade(){
 }
 
 var mainGameLoop = window.setInterval(function(){
-    clickButton()
+    clickForGold()
 }, 1000)
 
 var saveGameLoop = window.setInterval(function(){
