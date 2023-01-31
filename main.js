@@ -1,21 +1,21 @@
 var gameData = {
-    clicked: 0, //the number of how many clicks you have
-    clicksPerClick: 1, //the number of how many clicks you can get per click
-    clicksPerClickCost: 10
+    gold: 0, 
+    goldPerClick: 1, 
+    goldPerClickCost: 10
 }
 
-function clickButton(){
-    gameData.clicked += gameData.clicksPerClick //click the button and the number of clicks goes up
-    document.getElementById("clicksGained").innerHTML = gameData.clicked + " clicked"
+function clickForGold(){
+    gameData.gold += gameData.goldPerClick
+    document.getElementById("goldGained").innerHTML = gameData.gold + " Gold"
 }
 
-function buyGoldPerClick(){
-    if(gameData.clicked >= gameData.clicksPerClickCost){
-        gameData.clicked -= gameData.clicksPerClickCost
-        gameData.clicksPerClick += 1
-        gameData.clicksPerClickCost *= 2
-        document.getElementById("clicksGained").innerHTML = gameData.clicked + " clicked"
-        document.getElementById("perClickUpgrade").innerHTML = "Upgrade Your Mouse (Currently Level " + gameData.clicksPerClick + ") Cost: " + gameData.clicksPerClickCost + " clicks"
+function buyUpgrade(){
+    if(gameData.gold >= gameData.goldPerClickCost){
+        gameData.gold -= gameData.goldPerClickCost
+        gameData.goldPerClick += 1
+        gameData.goldPerClickCost *= 2
+        document.getElementById("goldGained").innerHTML = gameData.gold + " Gold"
+        document.getElementById("perClickUpgrade").innerHTML = "UwUpgrade Your Mouse (Currently Level " + gameData.goldPerClick + ") Cost: " + gameData.goldPerClickCost + " gold"
     }
 }
 
