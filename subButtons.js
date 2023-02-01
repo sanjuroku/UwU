@@ -42,14 +42,14 @@ function nofun(){
 $("#darkChangeButton").on('click', function() {
     if ($("#darkChangeButton").html() == "Too bright?"){
         document.body.style.background = "#262626";
-        if(noFunButton.style.display == "none"){
+        if(($('#noFunButton').css('display') == 'none')){
             text1.style.color = "#faebd7";
             text2.style.color = "#faebd7";
         }
         $("#darkChangeButton").html("Too dark?");
     }else{
         document.body.style.background = "#f2f2f2";
-        if(noFunButton.style.display == "none"){
+        if(($('#noFunButton').css('display') == 'none')){
             text1.style.color = "#264040";
             text2.style.color = "#264040";
         }
