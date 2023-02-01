@@ -47,6 +47,7 @@ $("#darkChangeButton").on('click', function() {
             text2.style.color = "#faebd7";
         }
         $("#darkChangeButton").html("Too dark?");
+        gameData.themeMemo = "dark";
     }else{
         document.body.style.background = "#f2f2f2";
         if(($('#noFunButton').css('display') == 'none')){
@@ -54,5 +55,6 @@ $("#darkChangeButton").on('click', function() {
             text2.style.color = "#264040";
         }
         $("#darkChangeButton").html("Too bright?");
+        gameData.themeMemo = "white";
     }
 });
