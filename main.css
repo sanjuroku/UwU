@@ -1,0 +1,50 @@
+#spaceBox {
+  height: 200px;
+}
+
+#goldGained {
+  text-align: center;
+}
+
+#yourTool {
+  text-align: center;
+}
+
+button {
+  color:white;
+  background-color: deeppink;
+  border-color: honeydew;
+  display:block;
+  margin:0 auto;
+}
+
+#noFunButton {
+  display: none;
+  opacity: 0;
+  animation-name: fadein;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards; 
+}
+
+@keyframes fadein {
+  0% {
+     opacity: 0;
+     transform: translateX(0);
+  }
+  100% {
+     opacity: 1;
+     transform: translateX(0);
+  }
+}
+
+@keyframes fadeout {
+  0% {
+     opacity: 1;
+     transform: translateY(0);
+  }
+  100% {
+     opacity: 0;
+     transform: translateY(0);
+  }
+}

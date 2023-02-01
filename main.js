@@ -20,25 +20,34 @@ function buyUpgrade(){
     }
 }
 
+const text1 = document.getElementById("goldGained");
+const text2 = document.getElementById("yourTool");
+const text3 = document.getElementById("clickButton");
+const text4 = document.getElementById("perClickUpgrade");
+const text5 = document.getElementById("funButton");
+const text6 = document.getElementById("clearSaveButton");
+
+const noFunButton = document.getElementById("noFunButton");
+
 function clickForFun(){
-    const text1 = document.getElementById("funButton");
-    const text2 = document.getElementById("yourTool");
-    const text3 = document.getElementById("clickButton");
-    const text4 = document.getElementById("perClickUpgrade");
-    const text5 = document.getElementById("goldGained");
     text1.style.color = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
     text2.style.color = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
     text3.style.color = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
     text4.style.color = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
     text5.style.color = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+    text6.style.color = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
 
-    // setTimeout(function() {
-    //     text1.style.color = "black";
-    //     text2.style.color = "black";
-    //     text3.style.color = "black";
-    //     text4.style.color = "black";
-    //     text5.style.color = "black";
-    //   }, 2000);
+    noFunButton.style.display = "block";
+}
+
+function nofun(){
+    text1.style.color = "black";
+    text2.style.color = "black";
+    text3.style.color = "white";
+    text4.style.color = "white";
+    text5.style.color = "white";
+    text6.style.color = "white";
+    document.getElementById("noFunButton").style.display = "none";
 }
 
 var mainGameLoop = window.setInterval(function(){
@@ -46,10 +55,15 @@ var mainGameLoop = window.setInterval(function(){
 }, 1000)
 
 var saveGameLoop = window.setInterval(function(){
-    localStorage.setItem("clickGameSave", Json.stringfy(gameData))
-}, 15000)
+    localStorage.setItem("clickGameSave", JSON.stringify(gameData))
+}, 1000)
 
 var savegame = JSON.parse(localStorage.getItem("clickGameSave"))
 if(savegame !== null){
     gameData = savegame
+}
+
+function clearSave() {
+    localStorage.clear();
+    location.reload();
 }
