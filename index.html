@@ -5,31 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="main.css" />
-    <!-- <link rel="stylesheet" type="text/css" href="rpsGame.css" /> -->
+    <link rel="stylesheet" type="text/css" href="rpsGame.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <title>UwU</title>
 </head>
 <body>
+    <script src="main.js" charset="utf-8" type="text/javascript"></script>
+    <script src="rpsGame.js" charset="utf-8" type="text/javascript"></script>
+    <div id="leftBox"></div>
+    <div id="middleBox">
     <div id="spaceBox"></div>
-    <p id="goldGained">You have 0 Gold</p>
-    <p id="yourTool">Your Mouse (Currently Level 1)</p>
-    <button onclick="clickForGold()" id="clickButton">Click Me For Gold :3</button>
-    <button onclick="buyUpgrade()" id="perClickUpgrade">UwUpgrade Your Mouse (Cost: 10 gold)</button>
-    <button onclick="clickForFun()" id="funButton">Click me just for fun :3</button>
+    <p id="goldGained" class="text">You have <script>gameData.gold</script> Gold</p>
+    <p id="yourTool" class="text">Your Mouse (Currently Level <script>gameData.goldPerClick</script>)</p>
+    <button onclick="clickForGold()" id="clickButton" class="buttonText">Click Me For Gold :3</button>
+    <button onclick="buyUpgrade()" id="perClickUpgrade" class="buttonText">UwUpgrade Your Mouse (Cost: <script>gameData.goldPerClickCost</script> gold)</button>
+    <button onclick="clickForFun()" id="funButton" class="buttonText">Click me just for fun :3</button>
     <button onclick="nofun()" id="noFunButton">I'm bored.</button>
-    <button onclick="clearSave()" id="clearSaveButton">*** Delete Save Data *** (R U SURE? ;3)</button>
+    <button onclick="clearSave()" id="clearSaveButton" class="buttonText">*** Delete Save Data *** (R U SURE? ;3)</button>
 
     <button id="darkChangeButton">Too bright?</button>
-
-    <script src="main.js" charset="utf-8" type="text/javascript"></script>
+    </div>
     <script src="subButtons.js" charset="utf-8" type="text/javascript"></script>
 
     <!-- mayby there will be a minigame? ;) -->
-    <!-- <div class="full-container">
+    <div id="gameBox">
         <div id="game">
+            <p class="plainText">Let's have some fun!</p>
+            <input type="number" id="numberInput" min="100" max="100000" step="100" value="100">
+            <div id="betGold" class="plainText">Gold</div>
+            <button id="betButton" class="buttonText" onclick="betSomeGold()">Bet</button>
+            <div for="betButton" class="plainText">(min="100" max="100000")</div>
+
+            <div id="rpsGame">
+            <div class="plainText" id="betLog"></div>
+            <div class="rpsGameMain">
+                <div class="plainText" id="rpsGameTittle">[Rock paper scissors]</div>
+                <div class="plainText" >gaaaaaaaaaaaaaaame</div>
+            </div>
+            
+            </div>
         </div>
     </div>
-    <script src="rpsGame.js" charset="utf-8" type="text/javascript"></script> -->
+    
 </body>
 </html>
