@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="css/main.css" />
     <link rel="stylesheet" type="text/css" href="css/rpsGame.css" />
     <link rel="stylesheet" type="text/css" href="css/mi-cha.css" />
+    <link rel="stylesheet" type="text/css" href="css/coutdown.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <title>UwU</title>
@@ -17,9 +18,10 @@
     <script src="js/main.js" charset="utf-8" type="text/javascript"></script>
     <script src="js/rpsGame.js" charset="utf-8" type="text/javascript"></script>
     <script src="js/mi-cha.js" charset="utf-8" type="text/javascript"></script>
+
     <div id="leftBox">
         <!-- TO DO: 使用金钱购买随机小咪照片 （SSR SR R N）-->
-        <div class="plainText" id="miChaTittle">mi-chan gacha UwU <br/>100 gold for 1 mi-cha!</div>
+        <div class="plainText" id="miChaTittle">mi-chan gacha UwU <br />100 gold for 1 mi-cha!</div>
         <div id="mi-cha">
             <button id="miChaButton" class="buttonText" onclick="miChaCha()">mi-cha!</button>
             <img id="miChanImage"></img>
@@ -27,7 +29,19 @@
         </div>
     </div>
     <div id="middleBox">
-        <div id="spaceBox"></div>
+        <div id="spaceBox">
+            <!-- Off work countdown -->
+            <div style="visibility: hidden;">Header</div>
+            <div id="theTimer">
+                <div id="countDownTittle" class="plainText"> &#60;&#60; Off work countdown &#62;&#62; </div>
+                <div id="offWorkCountdown" class="plainText"></div>
+            </div>
+            <div id="theWorldBox">
+                <label for="shiftTime" class="plainText">Adjust the off work hour &#62;&#62; </label>
+                <input type="time" id="shiftTime" value="18:00" />
+            </div>
+            <script src="js/countdown.js" charset="utf-8" type="text/javascript"></script>
+        </div>
         <p id="goldGained" class="text">You have
             <script>gameData.gold</script> Gold
         </p>
@@ -50,7 +64,7 @@
     <div id="gameBox">
         <div id="game">
             <p class="plainText">Let's have some fun!</p>
-            <input type="number" id="numberInput" min="100" max="100000" step="100" value="100">
+            <input type="number" id="numberInput" min="100" max="100000" step="100" value="100" />
             <div id="betGold" class="plainText">Gold</div>
             <button id="betButton" class="buttonText" onclick="betSomeGold()">Bet</button>
             <div for="betButton" class="plainText">(min="100" max="100000")</div>

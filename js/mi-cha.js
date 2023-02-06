@@ -32,7 +32,7 @@ function miChaCha() {
     } else {
         // Show the img
         $("#miChanImage").attr("src", "img/feelssadman.png").css("display", "inline-block");
-        $("#miChaLog").html("No gold, no mi-chan").css("display", "block").css("font-weight","800");
+        $("#miChaLog").html("No gold, no mi-chan").css("display", "block").css("font-weight", "800");
     }
 
 }
