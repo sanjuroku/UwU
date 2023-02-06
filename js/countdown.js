@@ -7,8 +7,17 @@ $("#theWorldBox").hover(
     }
 )
 
+// TODO:去除打开窗口的时候的弹窗
+
 var endTime = new Date();
-endTime.setHours(18, 0, 0, 0);
+var compareTime = new Date();
+compareTime.setHours(18, 0, 0, 0);
+if (endTime.getDate < compareTime.getDate) {
+    endTime.setHours(18, 0, 0, 0);
+}else{
+    clearInterval(timer);
+    timer = false;
+}
 
 // UpdateTime function
 function updateTime() {
@@ -18,6 +27,8 @@ function updateTime() {
 
     if (remainingTime < 0) {
         clearInterval(timer);
+        timer = false;
+
         alert("yeah! (∩ˊ꒳​ˋ∩)･* It's time to go home and play video games!! \r\n ** Refresh to reset the countdown ** ∩( ・ω・)∩");
         return;
     }
@@ -34,18 +45,23 @@ function updateTime() {
 }
 
 // Change the off work hour
-$("input[type=time]").on("change", function() {
+$("input[type=time]").on("change", function () {
     var inputTime = new Date(this.valueAsDate);
     var AdjustedInputTime = new Date(inputTime.getTime() + inputTime.getTimezoneOffset() * 60000); //timezone adjusted
 
-    console.log("off hour = "+AdjustedInputTime.getHours()+":"+AdjustedInputTime.getMinutes());
+    console.log("off hour = " + AdjustedInputTime.getHours() + ":" + AdjustedInputTime.getMinutes());
     var inputHour = AdjustedInputTime.getHours();
     var inputMinutes = AdjustedInputTime.getMinutes();
     var inputSec = AdjustedInputTime.getSeconds();
     var inputMS = AdjustedInputTime.getMilliseconds();
 
     endTime.setHours(inputHour, inputMinutes, inputSec, inputMS);
-    updateTime();
-  })
 
-  var timer = setInterval(updateTime, 0);
+    if (timer == false) {
+        timer = setInterval(updateTime, 1000);
+    } else {
+        updateTime();
+    }
+})
+
+var timer = setInterval(updateTime, 1000);

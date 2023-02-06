@@ -67,15 +67,13 @@ function buyUpgrade() {
         gameData.gold -= gameData.goldPerClickCost;
         gameData.goldPerClick += 1;
         gameData.goldPerClickCost *= 2
-        document.getElementById("goldGained").innerHTML = "You have " + gameData.gold + " Gold"
-        document.getElementById("yourTool").innerHTML = "Your Mouse (Currently Level " + gameData.goldPerClick + ")";
-        document.getElementById("perClickUpgrade").innerHTML = "UwUpgrade Your Mouse (Cost: " + gameData.goldPerClickCost + " gold)";
+        refreshData();
     }
 };
 
 // Update data function
 function refreshData() {
-    document.getElementById("goldGained").innerHTML = "You have " + gameData.gold + " Gold";
-    document.getElementById("yourTool").innerHTML = "Your Mouse (Currently Level " + gameData.goldPerClick + ")";
-    document.getElementById("perClickUpgrade").innerHTML = "UwUpgrade Your Mouse (Cost: " + gameData.goldPerClickCost + " gold)";
+    $('#goldGained').html("You have " + gameData.gold + " Gold");
+    $('#yourTool').html("Your Mouse (Currently Level " + gameData.goldPerClick + ")");
+    $('#perClickUpgrade').html("UwUpgrade Your Mouse (Cost: " + gameData.goldPerClickCost + " gold)");
 };
