@@ -1,0 +1,52 @@
+#gameBox {
+  height: 400px;
+  width: 30%;
+  display: inline-block;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.plainText {
+  margin-bottom: 8px;
+}
+
+#betButton {
+  display: inline;
+  margin-bottom: 8px;
+}
+
+#betGold {
+  display: inline;
+  vertical-align: middle;
+}
+
+#numberInput {
+  width: auto;
+  vertical-align: middle;
+}
+
+#rpsGame {
+  display: none;
+  margin-top: 20px;
+  opacity: 0;
+  animation-name: fadein;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.rpsGameMain {
+  padding-left: 50px;
+}

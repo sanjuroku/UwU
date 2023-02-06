@@ -1,0 +1,36 @@
+#miChaTittle,#mi-cha {
+    text-align: center;
+}
+
+#miChanImage {
+    display: none;
+    margin-top: 10px;
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+    animation-name: fadein;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+      transform: translateX(0);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+#miChaLog {
+    display: none;
+    opacity: 0;
+    animation-name: fadein;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+  }
