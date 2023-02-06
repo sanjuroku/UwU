@@ -5,8 +5,8 @@
 #miChanImage {
     display: none;
     margin-top: 10px;
-    width: 200px;
-    height: 200px;
+    width: 50%;
+    height: 50%;
     opacity: 0;
     animation-name: fadein;
     animation-duration: 1.5s;
