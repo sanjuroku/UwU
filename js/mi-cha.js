@@ -1,41 +1,37 @@
-// Storing imgs
-var miChanImgs = [
-    "img/mi01.jpg",
-    "img/mi02.jpg",
-    "img/mi03.jpg",
-    "img/mi04.jpg",
-    "img/mi05.jpg",
-    "img/mi06.jpg",
-    "img/mi07.jpg",
-    "img/mi08.jpg",
-    "img/mi09.jpg",
-    "img/mi10.jpg",
-    "img/mi11.jpg",
-    "img/mi12.jpg",
-    "img/mi13.jpg",
-    "img/mi14.jpg",
-];
+const miChanImgsLength = 37; // how many imgs in the img/ folder. !important.
 
 // Gacha simulator
 function miChaCha() {
 
-    var miChaResult = miChaPay();
+    const miChaResult = miChaPay();
 
     if (miChaResult == true) {
         // Randomly generate the index number
-        var randomIndex = Math.floor(Math.random() * miChanImgs.length);
+        let randomIndex = Math.floor(Math.random() * miChanImgsLength);
+
+        if (randomIndex < 10) {
+            randomIndex = String("0" + randomIndex);
+        }else{
+            randomIndex = String(randomIndex);
+        }
 
         // Show the img
-        $("#miChanImage").attr("src", miChanImgs[randomIndex]).css("display", "inline-block");
-        // hide the log
-        $("#miChaLog").html("").css("display", "none");
+        // img's name must be [mi**.jpg] (**=index)
+        $("#miChanImage").attr("src", "img/mi" + randomIndex + ".jpg").css("display", "inline-block");
+
+        // show the img No.
+        $("#miChaLog").html("!!! \\michan_" + randomIndex + " GET DAZE/ !!!").css("display", "block").css("font-weight", "bold");
+
+        miChanCollectionCheck(randomIndex);
     } else {
         // Show the img
         $("#miChanImage").attr("src", "img/feelssadman.png").css("display", "inline-block");
         $("#miChaLog").html("No gold, no mi-chan").css("display", "block").css("font-weight", "800");
     }
 
-}
+    // show the progress of miCollection
+    $('#miChanCollection').html("mi-chan Collection (" + miCollection.length + "/" + miChanImgsLength + ")").css("display", "block");
+};
 
 // pay some gold per micha
 function miChaPay() {
@@ -45,5 +41,21 @@ function miChaPay() {
         gameData.gold -= 100;
         return true;
     }
-
 }
+
+// Check the collection
+function miChanCollectionCheck(index) {
+    const randomIndex = index;
+    let checkResult = true;
+    if (miCollection.length == 0) {
+        miCollection.push(randomIndex);
+        return;
+    } else {
+        checkResult = miCollection.includes(randomIndex);
+        if (checkResult == false) { // If not exist then push to the Array
+            miCollection.push(randomIndex);
+        } else {
+            return;
+        }
+    }
+};

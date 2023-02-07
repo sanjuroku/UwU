@@ -5,18 +5,24 @@ var gameData = {
     goldPerClickCost: 10,
     themeMemo: "white"
 };
+var miCollection = [];
 
 // Save game per second
 $(document).ready(function () {
     var saveGameLoop = window.setInterval(function () {
         localStorage.setItem("clickGameSave", JSON.stringify(gameData));
+        localStorage.setItem("miCollection", JSON.stringify(miCollection));
     }, 1000);
 
     // Load the game file if it exists
     var savegame = JSON.parse(localStorage.getItem("clickGameSave"));
+    var saveMi = JSON.parse(localStorage.getItem("miCollection"));
 
     if (savegame !== null) {
-        gameData = savegame
+        gameData = savegame;
+    };
+    if (saveMi !== null) {
+        miCollection = saveMi;
     };
 
     // Load the theme data (in case the theme doesn't change when the page is refreshed) 
@@ -41,7 +47,7 @@ function clearSave() {
 // Click for gold
 function clickForGold() {
     gameData.gold += gameData.goldPerClick;
-    document.getElementById("goldGained").innerHTML = "You have " + gameData.gold + " Gold";
+    $('#goldGained').html("You have " + gameData.gold + " Gold");
 };
 
 // Gold are added every second (the amount is based on the upgrade level).

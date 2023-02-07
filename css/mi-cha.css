@@ -27,7 +27,7 @@
     }
 }
 
-#miChaLog {
+#miChaLog,#miChanCollection {
     display: none;
     opacity: 0;
     animation-name: fadein;
