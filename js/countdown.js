@@ -8,15 +8,15 @@ $("#theWorldBox").hover(
 )
 
 // TODO:去除打开窗口的时候的弹窗
-
-var endTime = new Date();
-var compareTime = new Date();
-compareTime.setHours(18, 0, 0, 0);
-if (endTime.getDate < compareTime.getDate) {
-    endTime.setHours(18, 0, 0, 0);
-}else{
+let counter = 0; // To count how many times the alert pops up
+let compareTime = new Date();
+let endTime = new Date();
+endTime.setHours(18, 0, 0, 0);
+console.log("*** compareTime = " + compareTime + " *** \r\n*** endTime = " + endTime + " ***");
+if (compareTime >= endTime) {
+    console.log("compareTime >= endTime");
     clearInterval(timer);
-    timer = false;
+    counter = 2;
 }
 
 // UpdateTime function
@@ -27,9 +27,11 @@ function updateTime() {
 
     if (remainingTime < 0) {
         clearInterval(timer);
-        timer = false;
-
-        alert("yeah! (∩ˊ꒳​ˋ∩)･* It's time to go home and play video games!! \r\n ** Refresh to reset the countdown ** ∩( ・ω・)∩");
+        if (++counter < 2) { // Make sure the alert pops up only once
+            console.log("counter = " + counter);
+            console.log("remainingTime = " + remainingTime);
+            alert("yeah! (∩ˊ꒳​ˋ∩)･* It's time to go home and play video games!! \r\n ** You can adjust the off work hour at any time ** ∩( ・ω・)∩");
+        }
         return;
     }
 
@@ -41,6 +43,8 @@ function updateTime() {
 
     // show timer
     $('#offWorkCountdown').html(hours + ":" + minutes + ":" + seconds);
+
+    counter = 0;
 
 }
 
@@ -57,11 +61,7 @@ $("input[type=time]").on("change", function () {
 
     endTime.setHours(inputHour, inputMinutes, inputSec, inputMS);
 
-    if (timer == false) {
-        timer = setInterval(updateTime, 1000);
-    } else {
-        updateTime();
-    }
+    timer = setInterval(updateTime, 1000);
 })
 
 var timer = setInterval(updateTime, 1000);
