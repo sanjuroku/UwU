@@ -7,7 +7,6 @@ $("#theWorldBox").hover(
     }
 )
 
-// TODO:去除打开窗口的时候的弹窗
 let counter = 0; // To count how many times the alert pops up
 let compareTime = new Date();
 let endTime = new Date();

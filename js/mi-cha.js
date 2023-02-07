@@ -1,4 +1,6 @@
-const miChanImgsLength = 38; // how many imgs in the img/ folder. !important.
+const miChanImgsLength = 45; // how many imgs in the img/ folder. !important.
+const nekoChan = ["39", "40", "41", "42"];
+const pepe = ["43", "44"];
 
 // Gacha simulator
 function miChaCha() {
@@ -11,16 +13,28 @@ function miChaCha() {
 
         if (randomIndex < 10) {
             randomIndex = String("0" + randomIndex);
-        }else{
+        } else {
             randomIndex = String(randomIndex);
         }
 
-        // Show the img
-        // img's name must be [mi**.jpg] (**=index)
-        $("#miChanImage").attr("src", "img/mi" + randomIndex + ".jpg").css("display", "inline-block");
-
         // show the img No.
-        $("#miChaLog").html("!!! \\michan_" + randomIndex + " GET DAZE/ !!!").css("display", "block").css("font-weight", "bold");
+        if (nekoChan.includes(randomIndex)) {
+            $("#miChaLog").html("!!! \\nekochan_" + randomIndex + " GET DAZE/ !!!").css("display", "block").css("font-weight", "bold");
+            showImgs(randomIndex);
+        } else if (pepe.includes(randomIndex)) {
+            $("#miChaLog").html("!!! \\pepecat_" + randomIndex + " GET DAZE/ !!!").css("display", "block").css("font-weight", "bold");
+            if (randomIndex == "44") {
+                $("#miChanImage").attr("src", "img/mi" + randomIndex + ".png").css("display", "inline-block"); //show png
+            } else {
+                showImgs(randomIndex);
+            }
+        } else if (randomIndex == "38") {
+            $("#miChaLog").html("!!! \\confused_cat GET DAZE/ !!!").css("display", "block").css("font-weight", "bold");
+            showImgs(randomIndex);
+        } else {
+            $("#miChaLog").html("!!! \\michan_" + randomIndex + " GET DAZE/ !!!").css("display", "block").css("font-weight", "bold");
+            showImgs(randomIndex);
+        }
 
         miChanCollectionCheck(randomIndex);
     } else {
@@ -41,6 +55,13 @@ function miChaPay() {
         gameData.gold -= 100;
         return true;
     }
+}
+
+// Show the img
+// img's name must be [mi**.jpg] (**=index)
+function showImgs(x) {
+    let randomIndex = x;
+    $("#miChanImage").attr("src", "img/mi" + randomIndex + ".jpg").css("display", "inline-block");
 }
 
 // Check the collection
