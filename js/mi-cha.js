@@ -1,4 +1,4 @@
-const miChanImgsLength = 37; // how many imgs in the img/ folder. !important.
+const miChanImgsLength = 38; // how many imgs in the img/ folder. !important.
 
 // Gacha simulator
 function miChaCha() {
