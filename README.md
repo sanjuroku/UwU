@@ -4,8 +4,11 @@ A personal side project.
 **Just for fun :3**  
 \>> <https://sanjuroku.github.io/UwU/> <<
 
-> 2023/02/07  
+> 2023/02/08  
 > What we can do nyaw:
->> * Off work countdown
->> * Mi-chan gacha simulator
->> * a simple incremental game
+>> * Off work countdown ~~(The end time is adjustable, so it's basically just a countdown. 0w0)~~
+>> * Mi-chan gacha simulator (0/45)
+>> * A simple incremental game (Yeah I know nothing special)
+>> * Change the color of the text randomly (just for fun :3)
+>> * Support save/load/delete save data (No need to worry about losing progress :thums up:)
+>> * Support dark/light theme switching (Eye care!)
