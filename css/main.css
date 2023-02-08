@@ -71,3 +71,14 @@ button {
 #darkChangeButton {
   background-color: salmon;
 }
+
+#sites{
+  position: absolute;
+  text-align:right;
+  right: 20px;
+  bottom: 20px;
+}
+
+#gitPage{
+  opacity: 0.2;
+}

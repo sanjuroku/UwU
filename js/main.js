@@ -35,6 +35,16 @@ $(document).ready(function () {
 
     // Update data according to the gameData
     refreshData();
+
+    // git icon hover event
+    $("#gitPage").hover(
+        function () {
+            $(this).css("opacity", "0.7");
+        },
+        function () {
+            $(this).css("opacity", "0.2");
+        }
+    );
 });
 
 // Clear the save data
