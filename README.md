@@ -2,7 +2,7 @@
 
 A personal side project.  
 **Just for fun :3**  
-\>> <https://sanjuroku.github.io/UwU/> <<
+\>> <a href="placeholder.com" target="_blank">https://sanjuroku.github.io/UwU/</a> <<
 
 > 2023/02/08  
 > What we can do nyaw:
